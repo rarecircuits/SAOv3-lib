@@ -1,0 +1,11 @@
+build/
+.vscode/
+device/**/*.o
+device/test.elf
+device/test.hex
+
+# PlatformIO build output
+.pio/
+
+# macOS
+.DS_Store

@@ -1,0 +1,7 @@
+TODO:
+ - Unify SAO Spec Versioning:
+   - ARP UDID version
+   - Version reported in command
+   - Specification document version
+ - General SAO reset command?
+ - Defaults for saod user config in core.h?

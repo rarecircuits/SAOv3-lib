@@ -1,0 +1,17 @@
+{
+  "name": "SaoDeviceLib",
+  "version": "0.1.0",
+  "description": "SAOv3 device-side library. Implements SMBus/ARP enumeration, the SAO common interface, and the LED and Port Identify class interfaces.",
+  "keywords": "sao, saov3, smbus, i2c, arp, defcon, badge",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RareCircuits/SAOv3-lib.git"
+  },
+  "frameworks": "*",
+  "platforms": "*",
+  "build": {
+    "includeDir": "include",
+    "srcDir": "src"
+  }
+}

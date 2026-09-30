@@ -1,0 +1,38 @@
+Checks: >
+  *,
+  -clang-analyzer-*,
+  clang-analyzer-core.*,
+  bugprone-*,
+  cert-*,
+  cppcoreguidelines-*,
+  google-*,
+  modernize-*,
+  performance-*,
+  readability-*,
+  portability-*,
+  -cppcoreguidelines-avoid-magic-numbers,
+  -cppcoreguidelines-macro-to-enum,
+  -cppcoreguidelines-init-variables,
+  -readability-magic-numbers,
+  -modernize-macro-to-enum,
+  -readability-isolate-declaration,
+  -altera-unroll-loops,
+  -altera-struct-pack-align,
+  -altera-id-dependent-backward-branch,
+  -llvm-header-guard,
+  -google-readability-todo,
+  -bugprone-easily-swappable-parameters
+WarningsAsErrors: ''
+HeaderFilterRegex: '.*'
+FormatStyle: none
+CheckOptions:
+  - key: cppcoreguidelines-pro-type-member-init.UseAssignment
+    value: 1
+  - key: readability-identifier-naming.ClassCase
+    value: CamelCase
+  - key: readability-identifier-naming.StructCase
+    value: lower_case
+  - key: readability-identifier-naming.VariableCase
+    value: lower_case
+  - key: llvmlibc-restrict-system-libc-headers.Includes
+    value: -*,stddef.h,stdbool.h,stdint.h,stdio.h,stdlib.h,string.h,assert.h,math.h,ctype.h,errno.h,limits.h
