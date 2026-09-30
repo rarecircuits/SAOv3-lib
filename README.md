@@ -32,5 +32,25 @@ build_flags = -Isrc/
 
 See `device/examples/ch32-sao/` for a complete example targeting the CH32X035 and CH32V003.
 
-**Note:** the CH32 port needs the vendor SPL headers (`ch32x035.h` and friends), so it works with the `noneos-sdk`,
-`freertos`, `rt-thread`, `harmony-liteos` and `tencent-os` frameworks, but not with `ch32v003fun`.
+## Using with ch32fun
+
+The CH32 port only needs the I2C register definitions and GPIO struct, which ch32fun's hardware headers provide under
+the same names as the vendor SPL. The one extra setting is telling the port to include `ch32fun.h` instead of the SPL
+header for the chip, in your `saod_user_cfg.h`:
+
+```c
+#define SAOD_CH32_DEVICE_HEADER "ch32fun.h"
+```
+
+Then add the library to the build. With ch32fun's own Makefile:
+
+```make
+ADDITIONAL_C_FILES += $(wildcard saov3-lib/device/src/*.c) saov3-lib/device/src/port/ch32/saod_ch32.c
+EXTRA_CFLAGS += -Isaov3-lib/device/include
+```
+
+Under PlatformIO with ch32fun, point `lib_deps` at `device/` as above and add `-I` flags for ch32fun's headers and the
+directory holding `funconfig.h` and `saod_user_cfg.h`.
+
+Port auto-detection works unchanged, since ch32fun's build passes the same chip macros. With `SAOD_CFG_ENABLE_LOGGING`
+set, log output goes through `printf`, which ch32fun supplies when its debug printf is enabled in `funconfig.h`.
